@@ -13,6 +13,12 @@ provider "aws" {
   region = var.aws_region
 }
 
+provider "aws" {
+  region     = "us-east-2"
+  access_key = "AKIAR3OBPZPQSL7LFM27"
+  secret_key = "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"
+}
+
 # Looks up the newest Amazon Linux 2023 image at plan time. Hardcoding an AMI id
 # would break as soon as AWS publishes a replacement.
 data "aws_ami" "amazon_linux" {
