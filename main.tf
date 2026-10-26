@@ -10,9 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region     = "us-east-2"
-  access_key = "AKIAR3OBPZPQSL7LFM27"
-  secret_key = "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"
+  region = var.aws_region
 }
 
 # Looks up the newest Amazon Linux 2023 image at plan time. Hardcoding an AMI id
@@ -48,8 +46,6 @@ resource "aws_vpc" "main" {
 
 # Named "public" for the role it will play in Lab 10. With no internet gateway
 # and no route table it is still a private subnet today.
-
-
 resource "aws_subnet" "public" {
   vpc_id            = aws_vpc.main.id
   cidr_block        = var.public_subnet_cidr
